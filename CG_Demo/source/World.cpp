@@ -37,9 +37,9 @@ void World::draw() {
 				glBegin(GL_LINE_LOOP);
 				for (int i = 0; i < 360; i++)
 				{
-					float degInRad = i*3.14159 / 180.0; //const float DEG2RAD = 3.14159/180.0;
-					glVertex3f(sin(degInRad)*17.5,
-						0.0f, cos(degInRad)*35.0);
+					float gradaux = i*3.14159 / 180.0; 
+					glVertex3f(sin(gradaux)*17.5,
+						0.0f, cos(gradaux)*35.0);
 				}
 				glEnd();
 				
@@ -53,9 +53,9 @@ void World::draw() {
 				glBegin(GL_LINE_LOOP);
 				for (int i = 0; i < 360; i++)
 				{
-					float degInRad = i*3.14159 / 180.0; //const float DEG2RAD = 3.14159/180.0;
-					glVertex3f(sin(degInRad)*35.0,
-						0.0f, cos(degInRad)*70.0);
+					float gradaux = i*3.14159 / 180.0; 
+					glVertex3f(sin(gradaux)*35.0,
+						0.0f, cos(gradaux)*70.0);
 				}
 				glEnd();
                // glRotatef(angle,0,1,0);
@@ -70,9 +70,9 @@ void World::draw() {
 				glBegin(GL_LINE_LOOP);
 				for (int i = 0; i < 360; i++)
 				{
-					float degInRad = i*3.14159 / 180.0; //const float DEG2RAD = 3.14159/180.0;
-					glVertex3f(sin(degInRad)*50.0,
-						0.0f, cos(degInRad)*100.0);
+					float gradaux = i*3.14159 / 180.0; 
+					glVertex3f(sin(gradaux)*50.0,
+						0.0f, cos(gradaux)*100.0);
 				}
 				glEnd();
 				//glPushMatrix();
@@ -87,7 +87,7 @@ void World::draw() {
 					{
 						glRotatef(angle, 0, 1, 0);
 						glTranslatef(sin(angle *(pi / 180))*50.0,
-							0.0f, cos(angle *(pi / 180))*100.0);
+							90.0f, cos(angle *(pi / 180))*100.0);
 						glColor3f(0, 0, 1);
 						glutSolidSphere(10, 30, 30);
 					}
@@ -101,9 +101,9 @@ void World::draw() {
 				glBegin(GL_LINE_LOOP);
 				for (int i = 0; i < 360; i++)
 				{
-					float degInRad = i*3.14159 / 180.0; //const float DEG2RAD = 3.14159/180.0;
-					glVertex3f(sin(degInRad)*77.25,
-						0.0f, cos(degInRad)*155.0);
+					float gradaux = i*3.14159 / 180.0;
+					glVertex3f(sin(gradaux)*77.25,
+						0.0f, cos(gradaux)*155.0);
 				}
 				glEnd();
 
@@ -118,9 +118,9 @@ void World::draw() {
 				glBegin(GL_LINE_LOOP);
 				for (int i = 0; i < 360; i++)
 				{
-					float degInRad = i*3.14159 / 180.0; //const float DEG2RAD = 3.14159/180.0;
-					glVertex3f(sin(degInRad)*257.5,
-						0.0f, cos(degInRad)*515.0);
+					float gradaux = i*3.14159 / 180.0;
+					glVertex3f(sin(gradaux)*257.5,
+						0.0f, cos(gradaux)*515.0);
 				}
 				glEnd();
                 
@@ -136,9 +136,9 @@ void World::draw() {
 				glBegin(GL_LINE_LOOP);
 				for (int i = 0; i < 360; i++)
 				{
-					float degInRad = i*3.14159 / 180.0; //const float DEG2RAD = 3.14159/180.0;
-					glVertex3f(sin(degInRad)*475.0,
-						0.0f, cos(degInRad)*950.0);
+					float gradaux = i*3.14159 / 180.0; 
+					glVertex3f(sin(gradaux)*475.0,
+						0.0f, cos(gradaux)*950.0);
 				}
 				glEnd();
                 
@@ -153,9 +153,9 @@ void World::draw() {
 				glBegin(GL_LINE_LOOP);
 				for (int i = 0; i < 360; i++)
 				{
-					float degInRad = i*3.14159 / 180.0; //const float DEG2RAD = 3.14159/180.0;
-					glVertex3f(sin(degInRad)*96.0,
-						0.0f, cos(degInRad)*192.0);
+					float gradaux = i*3.14159 / 180.0; 
+					glVertex3f(sin(gradaux)*96.0,
+						0.0f, cos(gradaux)*192.0);
 				}
 				glEnd();
                
@@ -170,9 +170,9 @@ void World::draw() {
 				glBegin(GL_LINE_LOOP);
 				for (int i = 0; i < 360; i++)
 				{
-					float degInRad = i*3.14159 / 180.0; //const float DEG2RAD = 3.14159/180.0;
-					glVertex3f(sin(degInRad)*1527.5,
-						0.0f, cos(degInRad)*3055.0);
+					float gradaux = i*3.14159 / 180.0; 
+					glVertex3f(sin(gradaux)*1527.5,
+						0.0f, cos(gradaux)*3055.0);
 				}
 				glEnd();
                 
@@ -185,8 +185,8 @@ void World::draw() {
                 break;
             case 8: //SOL
 				glTranslatef(0, 0, 0);
-                glRotatef(0,0,1,0);				
-                glScalef(0.5, 0.5, 0.5);
+                glRotatef(angle/10,0,1,0);				
+                glScalef(.5, .5, .5);
                 break;
             case 9: //LUNA
                 
