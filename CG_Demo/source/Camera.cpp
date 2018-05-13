@@ -1,3 +1,6 @@
+//Carlos Ayala 
+//Hector Flores
+//Diego Ramirez
 #include "../header/Camera.h"
 #include "../header/vecs.h"
 #include <cstdio>

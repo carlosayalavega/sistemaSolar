@@ -1,3 +1,6 @@
+//Carlos Ayala 
+//Hector Flores
+//Diego Ramirez
 #pragma once
 #include <string.h>
 #include <math.h>

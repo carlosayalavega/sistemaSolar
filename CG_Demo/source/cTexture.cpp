@@ -1,3 +1,6 @@
+//Carlos Ayala 
+//Hector Flores
+//Diego Ramirez
 #include <cstring>
 #include "../header/cTexture.h"
 

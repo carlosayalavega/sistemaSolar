@@ -1,3 +1,6 @@
+//Carlos Ayala 
+//Hector Flores
+//Diego Ramirez
 #include <math.h>
 #include "../header/vecs.h"
 

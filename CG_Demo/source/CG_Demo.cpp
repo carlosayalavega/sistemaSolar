@@ -1,10 +1,6 @@
-/*
-	TC3022. Computer Graphics Course
-	Project to implement Verlet integration
-	Particle Systems
-	Sergio Ruiz-Loza, Ph.D.
-*/
-
+//Carlos Ayala 
+//Hector Flores
+//Diego Ramirez
 #include <stdio.h>
 #include <time.h>
 
@@ -87,7 +83,7 @@ void init (void)
 	dir[1]=0;
 	dir[2]=1;
 
-	sceneCam.setPos(0,300,0);
+	sceneCam.setPos(0,600,0);
 	sceneCam.setDirVec(0,-10,1);
 	sceneCam.setPivot(0,0,0);
 	sceneCam.fov = 45;

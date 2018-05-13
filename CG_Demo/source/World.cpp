@@ -1,6 +1,6 @@
-//
-// Created by frhec on 8/05/18.
-//
+//Carlos Ayala 
+//Hector Flores
+//Diego Ramirez
 
 #include "../header/World.h"
 #include "../header/glm.h"
@@ -33,7 +33,7 @@ void World::draw() {
     glPushMatrix();
     {
         switch(changer) {
-            case 0:
+            case 0: //mercurio
 				glBegin(GL_LINE_LOOP);
 				for (int i = 0; i < 360; i++)
 				{
@@ -44,12 +44,12 @@ void World::draw() {
 				glEnd();
 				
 				//glTranslatef(0, 0, 35);
-				glTranslatef(sin(angle *(pi/180))*17.5,
-				0.0f, cos(angle *(pi / 180))*35.0);
-				glRotatef(angle2, 0, 1, 0);
+				glTranslatef(sin(angle/.241 *(pi/180))*17.5,
+				0.0f, cos(angle/.241 *(pi / 180))*35.0);
+				glRotatef(angle2/58.646, 0, 1, 0);
                 glScalef(0.03505f*escala,0.03505f*escala,0.03505f*escala);
                 break;
-            case 1:
+            case 1: //venus
 				glBegin(GL_LINE_LOOP);
 				for (int i = 0; i < 360; i++)
 				{
@@ -60,10 +60,10 @@ void World::draw() {
 				glEnd();
                // glRotatef(angle,0,1,0);
 				
-				glTranslatef(sin(angle *(pi / 180))*35.0,
-					0.0f, cos(angle *(pi / 180))*70.0);
+				glTranslatef(sin(angle/0.615 *(pi / 180))*35.0,
+					0.0f, cos(angle/0.615 *(pi / 180))*70.0);
 				//glTranslatef(y * 70, 0 , 0 );
-				glRotatef(angle2, 0, 1, 0);
+				glRotatef(angle2/243, 0, 1, 0);
                 glScalef(0.08695f*escala,0.08695f*escala,0.08695f*escala);
                 break;
             case 2: //TIERRA
@@ -86,8 +86,8 @@ void World::draw() {
 					glPushMatrix();
 					{
 						glRotatef(angle, 0, 1, 0);
-						glTranslatef(sin(angle *(pi / 180))*50.0,
-							90.0f, cos(angle *(pi / 180))*100.0);
+						glTranslatef(sin(angle*5 *(pi / 180))*50.0, //se tenia que poner *225, para hacer los 365 dias del año, pusimos menos para que se vea mejor el movimiento
+							90.0f, cos(angle*5 *(pi / 180))*100.0);
 						glColor3f(0, 0, 1);
 						glutSolidSphere(10, 30, 30);
 					}
@@ -96,7 +96,7 @@ void World::draw() {
 				//}
 				//glPopMatrix();
                 break;
-            case 3:
+            case 3: //marte
 
 				glBegin(GL_LINE_LOOP);
 				for (int i = 0; i < 360; i++)
@@ -108,13 +108,13 @@ void World::draw() {
 				glEnd();
 
                
-				glTranslatef(sin(angle *(pi / 180))*77.25,
-					0.0f, cos(angle *(pi / 180))*155.0);
+				glTranslatef(sin(angle/1.88 *(pi / 180))*77.25,
+					0.0f, cos(angle/1.88 *(pi / 180))*155.0);
 				//glTranslatef(y * 155, 0, 0);
-				glRotatef(angle2, 0, 1, 0);
+				glRotatef(angle2*1.025, 0, 1, 0);
                 glScalef(0.04889f*escala,0.04889f*escala,0.04889f*escala);
                 break;
-            case 4:
+            case 4://saturno
 				glBegin(GL_LINE_LOOP);
 				for (int i = 0; i < 360; i++)
 				{
@@ -126,13 +126,13 @@ void World::draw() {
                 
                // glRotatef(angle,0,1,0);
 				//glTranslatef(y * 515,0 , 0 );
-				glTranslatef(sin(angle *(pi / 180))*257.5,
-					0.0f, cos(angle *(pi / 180))*515.0);
-				glRotatef(angle2, 0, 1, 0);
+				glTranslatef(sin(angle/18 *(pi / 180))*257.5, //29.5 normal, aumentado para mostrar movimiento
+					0.0f, cos(angle/18 *(pi / 180))*515.0);
+				glRotatef(angle2*1.78, 0, 1, 0);
 				
                 glScalef(0.98227f*escala,0.98227f*escala,0.98227f*escala);
                 break;
-            case 5:
+           case 5: //uranus
 				glBegin(GL_LINE_LOOP);
 				for (int i = 0; i < 360; i++)
 				{
@@ -143,13 +143,13 @@ void World::draw() {
 				glEnd();
                 
                 //glRotatef(angle,0,1,0);
-				glTranslatef(sin(angle *(pi / 180))*475.0,
-					0.0f, cos(angle *(pi / 180))*950.0);
-				glRotatef(angle2, 0, 1, 0);
+				glTranslatef(sin(angle/22 *(pi / 180))*475.0, //84 normal, aumentado para mostrar mov
+					0.0f, cos(angle/22 *(pi / 180))*950.0);
+				glRotatef(angle2*1.82, 0, 1, 0);
 				//glTranslatef(0, 0, 950);
                 glScalef(0.866592f*escala,0.866592f*escala,0.866592f*escala);
                 break;
-            case 6:
+            case 6: //jupiter
 				glBegin(GL_LINE_LOOP);
 				for (int i = 0; i < 360; i++)
 				{
@@ -161,9 +161,9 @@ void World::draw() {
                
                // glRotatef(angle,0,1,0);
 				//glTranslatef(0, 0, 192);
-				glTranslatef(sin(angle *(pi / 180))*96.0,
-					0.0f, cos(angle *(pi / 180))*192.0);
-				glRotatef(angle2, 0, 1, 0);
+				glTranslatef(sin(angle/11.86 *(pi / 180))*96.0, //11.86 normal aumentado por vista
+					0.0f, cos(angle/11.86 *(pi / 180))*192.0);
+				glRotatef(angle2*1.51, 0, 1, 0);
                 glScalef(0.36723f*escala,0.36723f*escala,0.36723f*escala);
                 break;
             case 7:
@@ -178,15 +178,15 @@ void World::draw() {
                 
                 //glRotatef(angle,0,1,0);
 				//glTranslatef(0, 0, 3055);
-				glTranslatef(sin(angle *(pi / 180))*1527.5,
-					0.0f, cos(angle *(pi / 180))*3055.0);
-				glRotatef(angle2, 0, 1, 0);
+				glTranslatef(sin(angle/27 *(pi / 180))*1527.5, //164 es el normal, lo aumentamos para mostrar mayor movimiento
+					0.0f, cos(angle/27 *(pi / 180))*3055.0);
+				glRotatef(angle2*1.63, 0, 1, 0);
                 glScalef(0.35376f*escala,0.35376f*escala,0.35376f*escala);
                 break;
             case 8: //SOL
 				glTranslatef(0, 0, 0);
                 glRotatef(angle/10,0,1,0);				
-                glScalef(.5, .5, .5);
+                glScalef(1, 1, 1);
                 break;
             case 9: //LUNA
                 
@@ -203,8 +203,8 @@ void World::draw() {
 }
 
 void World::update() {
-	angle += 0.1;
-	angle2 += 0.2;
+	angle += .1;
+	angle2 += .2;
 	x = cos(angle*(3.14 / 180))*6.0f;
 	y = sin(angle*(3.14 / 180))*2.3f;
 }

@@ -1,18 +1,6 @@
-/*    
-      glm.c
-      Nate Robins, 1997, 2000
-      nate@pobox.com, http://www.pobox.com/~nate
- 
-      Wavefront OBJ model file format reader/writer/manipulator.
-
-      Includes routines for generating smooth normals with
-      preservation of edges, welding redundant vertices & texture
-      coordinate generation (spheremap and planar projections) + more.
-	
-      Improved version of GLM - 08.05.2008 Tudor Carean
-	  Added support for textures and loading callbacks
-*/
-
+//Carlos Ayala 
+//Hector Flores
+//Diego Ramirez
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
