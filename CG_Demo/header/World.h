@@ -34,11 +34,18 @@ public:
 	float y;
     GLMmodel * mundo;
     void update();
+	void Coord();
     World();
     void assign(int pos);
     int changer;
     void draw();
-	
+
+	const float *getPos() const;
+
+	float getDir() const;
+
+	void setDir(float dir);
+
 };
 
 

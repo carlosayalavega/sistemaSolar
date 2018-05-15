@@ -45,6 +45,12 @@ Camera::Camera(){
 	
 }
 
+void Camera::Coord(){
+	printf("lightCam.setPos(%f,%f,%f);\n",pos[0], pos[1], pos[2]);
+	printf("lightCam.setDirVec(%f,%f,%f);\n",dir[0], dir[1], dir[2]);
+	printf("lightCam.setPivot(%f,%f,%f);\n",pivot[0],pivot[1],pivot[2]);
+}
+
 void Camera::init(){
 	pos[0] = pos[1] = pos[2] = 0;
 	dir[0] = 1;
@@ -75,10 +81,23 @@ void Camera::setDirVec(float x, float y, float z){
 	}
 }
 
+void Camera::getPosVec(float* res) {
+	res[0] = pos[0];
+	res[1] = pos[1];
+	res[2] = pos[2];
+}
+
 void Camera::getDirVec(float* res){
 	res[0]=dir[0];
 	res[1]=dir[1];
 	res[2]=dir[2];
+}
+
+void Camera::getSum(float * res)
+{
+	res[0] = pos[0] + dir[0]-30.0f;
+	res[1] = pos[1] + dir[1]-6.0f;
+	res[2] = pos[2] + dir[2]+2;
 }
 
 void Camera::setUpVec(float x, float y, float z){
@@ -134,6 +153,52 @@ void Camera::moveDown(float dist){
 	pos[0] -= dist*up[0];
 	pos[1] -= dist*up[1];
 	pos[2] -= dist*up[2];
+}
+
+
+void Camera::RotationBetweenVectors(float * start, float * dest, float* nuevo){
+	normalize(start);
+	normalize(dest);
+
+	float cosTheta = dotProduct(start, dest);
+	float rotationAxis[3];
+	float tmp[3];
+
+	tmp[0] = 0.0f;
+	tmp[1] = 0.0f;
+	tmp[2] = 1.0f;
+
+	float tmp1[3];
+
+	tmp1[0] = 1.0f;
+	tmp1[1] = 0.0f;
+	tmp1[2] = 0.0f;
+
+	if (cosTheta < -1 + 0.001f) {
+		// special case when vectors in opposite directions:
+		// there is no "ideal" rotation axis
+		// So guess one; any will do as long as it's perpendicular to start
+		crossProduct(tmp, start, rotationAxis);
+		if (len2(rotationAxis) < 0.01) // bad luck, they were parallel, try again!
+			crossProduct(tmp1, start,rotationAxis);
+
+		normalize(rotationAxis);
+		nuevo[0] = DEGTORAD(180.0f);
+		nuevo[1] = rotationAxis[0];
+		nuevo[2] = rotationAxis[1];
+		nuevo[3] = rotationAxis[2];
+	}
+
+	crossProduct(start, dest, rotationAxis);
+
+	float s = sqrt((1 + cosTheta) * 2);
+	float invs = 1 / s;
+
+	nuevo[0] = s * 0.5f;
+	nuevo[1] = rotationAxis[0]*invs;
+	nuevo[2] = rotationAxis[1]*invs;
+	nuevo[3] = rotationAxis[2]*invs;
+
 }
 
 void Camera::move(float dist, float angle){
@@ -329,7 +394,7 @@ void Camera::draw(){
 	glColor3f(1.0,0.0,0.0);
 	glLineWidth(2.0);
 
-	glBegin(GL_LINE_STRIP);
+	/*glBegin(GL_LINE_STRIP);
 		glVertex3f(coords[0],  coords[1],  coords[2]); //nbr
 		glVertex3f(coords[3],  coords[4],  coords[5]); //nbl
 		glVertex3f(coords[9],  coords[10], coords[11]);//ntl
@@ -349,7 +414,7 @@ void Camera::draw(){
 		glVertex3f(coords[3],  coords[4],  coords[5]);
 		glVertex3f(coords[9],  coords[10], coords[11]);
 		glVertex3f(coords[21], coords[22], coords[23]);
-	glEnd();
+	glEnd();*/
 
 	if (enabled)
 		glEnable(GL_LIGHTING);

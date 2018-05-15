@@ -314,6 +314,11 @@ void mulVector(float * vec, float factor){
     vec[2]*=factor;
 }
 
+float len2(float *v)
+{
+	return v[0] * v[0] + v[1] * v[1] + v[2] * v[2];
+}
+
 void printVec(char* string, float* vec){
     printf("%s (%f,%f,%f)\n",string, vec[0],vec[1],vec[2]);
 }

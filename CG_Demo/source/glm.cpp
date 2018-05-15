@@ -1755,6 +1755,11 @@ GLvoid glmDraw(GLMmodel* model, GLuint mode,char *drawonly)
             glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, material->diffuse);
             glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, material->specular);
             glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, material->shininess);
+			float posLight0[4] = { -1.0f, 1.0f, 1.0f, 0.0f };
+			float ambLight0[4] = { 0.5f, 0.5f, 0.5f, 0.5f };
+
+			glLightfv(GL_LIGHT0, GL_POSITION, posLight0);
+			glLightfv(GL_LIGHT0, GL_AMBIENT, ambLight0);
         }
 
 		if (mode & GLM_TEXTURE) 

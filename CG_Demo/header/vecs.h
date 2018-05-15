@@ -22,6 +22,7 @@ using namespace std;
 void crossProduct(float *, float *, float *);
 void sumVector(float *, float *, float *);
 void mulVector(float *, float);
+float len2(float*);
 
 #define crossProduct(vec1, vec2, res) { res[0] = vec1[1] * vec2[2] - vec1[2] * vec2[1]; res[1] = vec1[2] * vec2[0] - vec1[0] * vec2[2]; res[2] = vec1[0] * vec2[1] - vec1[1] * vec2[0]; }
 
@@ -30,6 +31,7 @@ float cosAngTwoVecs(float *vec1, float *vec2);
 float angTwoVecs(float *vec1, float *vec2);
 
 void printVec(char *,float *);
+
 
 // Quaternions
 #define quatMagnitude(quat) sqrt(quat[0] * quat[0] + quat[1] * quat[1] + quat[2] * quat[2] + quat[3] * quat[3])

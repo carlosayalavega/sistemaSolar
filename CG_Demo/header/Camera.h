@@ -26,7 +26,12 @@ public:
 	void setUpVec(float x, float y, float z);
 	void setPivot(float x, float y, float z);
 
+	void RotationBetweenVectors(float* start, float* dest, float* nuevo);
+
+	void getPosVec(float* res);
 	void getDirVec(float* res);
+
+	void getSum(float* res);
 
 	void moveForward(float dist);
 	void moveBackward(float dist);
@@ -34,6 +39,8 @@ public:
 	void moveLeft(float dist);
 	void moveUp(float dist);
 	void moveDown(float dist);
+
+	void Coord();
 
 	void setView();
 	//void updateVisibility();
