@@ -16,6 +16,7 @@
 #include "../header/misc.h"
 #include "../header/World.h"
 #include "../header/Spacecraft.h"
+#include "Function.h"
 
 int mouseCoords[2], mouseMotionType = 0;
 Camera sceneCam, lightCam;
@@ -33,6 +34,12 @@ void displayText(int x, int y, char *txt);
 void display(void) {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+	glPushMatrix();
+	{
+		glColor3f(0.1, 0.1 ,0.4);
+		drawSkybox(1000.0);
+	}
+	glPopMatrix();
 	currentCamera->setView();
 
 	spacecraft->draw();
@@ -126,6 +133,7 @@ void init(void)
 	glPopMatrix();
 
 	spacecraft = new Spacecraft();
+	initskybox();
 	
 	float tmp[3];
 	lightCam.getSum(tmp);
@@ -342,6 +350,7 @@ int main(int argc, char** argv)
 	glutDisplayFunc(display);
 	glutIdleFunc (idle);
 	glutMainLoop();
+	killskybox();
 	return 0;   /* ANSI C requires main to return int. */
 }
 
